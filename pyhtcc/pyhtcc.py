@@ -362,7 +362,7 @@ class PyHTCC:
                 LoginUnexpectedError,
             ):
                 logger.exception("Unable to authenticate at this moment")
-                num_seconds = 17**i
+                num_seconds = 7**i
                 logger.debug(f"Sleeping for {num_seconds} seconds")
                 time.sleep(num_seconds)
 
