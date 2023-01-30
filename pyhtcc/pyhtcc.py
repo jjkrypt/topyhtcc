@@ -352,7 +352,7 @@ class PyHTCC:
         Note that the portal does have rate-limiting. This will attempt to retry with increasingly-long
             sleep intervals if rate-limiting is preventing sign-on.
         """
-        for i in range(2):
+        for i in range(5):
             logger.debug(f"Starting authentication attempt #{i + 1}")
             try:
                 return self._do_authenticate()
@@ -362,7 +362,7 @@ class PyHTCC:
                 LoginUnexpectedError,
             ):
                 logger.exception("Unable to authenticate at this moment")
-                num_seconds = 20**i
+                num_seconds = 17**i
                 logger.debug(f"Sleeping for {num_seconds} seconds")
                 time.sleep(num_seconds)
 
